@@ -4,7 +4,7 @@
 <br>
 <br>
 <form method="post" action="{% url 'checkregistration' %">
-    <table align="center" border="50">
+    <table align="center" border="5">
         <tr>
             <td>Enter Name</td>
             <td><input type="text" name="name" required/></td>
@@ -33,13 +33,20 @@
             <td>Conform Password</td>
             <td><input type="password" name="cpwd" required/></td>
         </tr>
-        <tr>
-            <td align="center"><input type="submit" value="Sign-up" required/></td>
-            <td align="center"><input type="reset" value="Clear" required/></td>
-        </tr>
+    </table>
+    <br>
+    <table align="center">
+    <tr>
+        <td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Sign-up">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
     </table>
 
 </form>
-
+<div>
+    {% for i in messages %}
+    <h4 align="center"><font color="red">{{i}}</font></h4>
+    {% endfor %}
+</div>
 
 {% endblock %}
