@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from django.contrib import messages
+from . models import Admin , Register
 from .models import Admin
 
 
@@ -18,3 +19,23 @@ def checkadminlogin(request):
             return render(request, "TravelManagementhome.html")
         else:
             return render(request,"loginfail.html")
+
+def checkregistration(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        addr = request.POST["addr"]
+        email = request.POST["email"]
+        phno = request.POST["Phno"]
+        uname = request.POST["uname"]
+        pwd = request.POST["pwd"]
+        cpwd = request.POST["cpwd"]
+        if pwd == cpwd:
+            if Register.objects.filter(username=uname).exists():
+                messages.info(request,"username already taken......")
+                return render(request,"register.html")
+            elif Register.objects.filter(email=email).exists():
+                messages.info(request,"email already taken.....")
+                return render(request,"request.html")
+
+
+
