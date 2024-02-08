@@ -14,11 +14,11 @@ class Register(models.Model):
     name = models.CharField(max_length=30,blank=False)
     address = models.CharField(max_length=30, blank=False)
     email = models.CharField(max_length=25, blank=False,unique=True)
-    phno = models.CharField(max_length=15, blank=False, unique=True)
+    phno = models.CharField(max_length=16, blank=False, unique=True)
     username = models.CharField(max_length=30, blank=False, unique=True)
-    password = models.CharField(max_length=12, blank=False)
+    password = models.CharField(max_length=15, blank=False)
     # Age=models.CharField(max_length=2,blank=False)
 
     class Meta:
-        db_table = "register_table"
+        db_table = "register1_table"
 
