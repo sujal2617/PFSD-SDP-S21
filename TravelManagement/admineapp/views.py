@@ -10,6 +10,7 @@ def TravelManagementhome(request):
 
 def loginfail(request):
      return render(request, "loginfail.html")
+
 def checkadminlogin(request):
     if request.method == "POST":
         adminuname = request.POST["uname"]  # gets user name
@@ -25,7 +26,7 @@ def checkregistration(request):
         name = request.POST["name"]
         addr = request.POST["addr"]
         email = request.POST["email"]
-        phno = request.POST["Phno"]
+        phno = request.POST["phno"]
         uname = request.POST["uname"]
         pwd = request.POST["pwd"]
         cpwd = request.POST["cpwd"]
