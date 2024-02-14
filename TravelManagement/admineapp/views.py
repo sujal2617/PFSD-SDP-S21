@@ -13,9 +13,13 @@ def loginfail(request):
 
 def checkadminlogin(request):
     if request.method == "POST":
-        adminuname = request.POST["uname"]  # gets user name
-        adminpwd = request.POST["pwd"]
-        flag = Admin.objects.filter(username=adminuname, password=adminpwd).values()
+        name = request.POST["uname"]  # gets user name
+        pwdd = request.POST["pwd"]
+        # flag = Admin.objects.filter(username=adminuname, password=adminpwd).values()
+        flag = Register.objects.filter(username=name, password=pwdd).values()
+        if flag:   #flag is not empty
+            if name=="sujal2624":  #here "sujal2624" is admin
+                return render(request,"Adminhome.html")
         if flag:
             return render(request, "TravelManagementhome.html")
         else:
