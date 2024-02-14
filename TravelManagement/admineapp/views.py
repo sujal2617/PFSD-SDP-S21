@@ -21,7 +21,7 @@ def checkadminlogin(request):
             if name=="sujal2624":  #here "sujal2624" is admin
                 return render(request,"Adminhome.html")
         if flag:
-            return render(request, "TravelManagementhome.html")
+            return render(request,  "TravelManagementhome.html")
         else:
             return render(request,"loginfail.html")
 

@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Travel Tourism Management</title>
+    <div align="center"><title>Travel Tourism Management</title></div>
     <link type="text/css" rel="stylesheet" href="{% static 'css/style.css'  %}" />
 </head>
 <body bgcolor="white">
-<h1> Travel Tourism Management </h1>
-<a href="{% url 'register' %}"> Sign-up |</a>
-<a href="{% url 'login' %}"> Login |</a>
-<a href="{% url 'about' %}"> About |</a>
-<a href="{% url 'contact' %}">Contact |</a>
-<a href="{% url 'home' %}">Home</a>
+<h1 align="center"> Travel Tourism Management </h1>
+<a href="{% url 'home' %}">Home</a><br>
+<a href="{% url 'register' %}"> Sign-up</a><br>
+<a href="{% url 'login' %}"> Login</a><br>
+<a href="{% url 'about' %}"> About</a><br>
+<a href="{% url 'contact' %}">Contact</a><br>
 <br><br><br>
 {% block 'b1' %}
 <h2 align="center"> <font color="green">KLU Travel Tourism And Management</font></h2>
