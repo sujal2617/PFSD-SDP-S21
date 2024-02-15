@@ -19,10 +19,13 @@ def checkadminlogin(request):
         flag = Register.objects.filter(username=name, password=pwdd).values()
         if flag:   #flag is not empty
             if name=="sujal2624":  #here "sujal2624" is admin
+                messages.info(request,"This is Admin's Travel Tourism Management page")  #to send message to the next page
                 return render(request,"Adminhome.html")
         if flag:
+            messages.info(request, "This is User's Travel Tourism Management page")
             return render(request,  "TravelManagementhome.html")
         else:
+            messages.info(request, "Your credentials are not correct")
             return render(request,"loginfail.html")
 
 def checkregistration(request):

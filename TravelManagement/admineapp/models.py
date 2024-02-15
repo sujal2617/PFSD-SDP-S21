@@ -10,7 +10,7 @@ class Admin(models.Model):  # Model class is available in models package
         db_table = "ttmadmin_table" # if there is no class meta admin will be the table name     #here ttmadin_table is the name of the table in database
 
 class Register(models.Model):
-    id = models.AutoField(primary_key=True)
+    # id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30,blank=False)
     address = models.CharField(max_length=30, blank=False)
     email = models.CharField(max_length=25, blank=False,unique=True)
