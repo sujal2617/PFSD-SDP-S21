@@ -6,4 +6,6 @@ urlpatterns=[
     path("checkadminlogin",views.checkadminlogin,name="checkadminlogin"),
     path("checkregistration",views.checkregistration,name="checkregistration"),
     path("checkpackages",views.checkpackages,name="checkpackages"),
+    path("loadpackages",views.loadpackages,name="loadpackages"),
+
 ]
