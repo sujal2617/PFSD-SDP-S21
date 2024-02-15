@@ -54,6 +54,6 @@ def checkregistration(request):
             return render(request, "register.html")
 
 
-
-
-
+def checkpackages(request):
+    messages.info(request,"Insert the data into the Table")
+    return render(request,"Package.html")

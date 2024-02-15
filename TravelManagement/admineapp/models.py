@@ -18,7 +18,17 @@ class Register(models.Model):
     username = models.CharField(max_length=30, blank=False, unique=True)
     password = models.CharField(max_length=15, blank=False)
     # Age=models.CharField(max_length=2,blank=False)
-
     class Meta:
         db_table = "register1_table"
+
+class Packages(models.Model):
+    id = models.AutoField(primary_key=True)
+    tourcode = models.CharField(max_length=10,blank=False)
+    tourname = models.CharField(max_length=30, blank=False)
+    tourpackage = models.CharField(max_length=30, blank=False)
+    desc = models.CharField(max_length=35, blank=False)
+    class Meta:
+        db_table="package_table"
+
+
 
