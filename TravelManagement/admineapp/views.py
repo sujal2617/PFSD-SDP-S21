@@ -64,23 +64,32 @@ def checkregistration(request):
 
 
 def checkpackages(request):
-    try:
+    # return render(request, "package.html")
+    if request.method == "POST":
+        tcode = request.POST["tourcode"]
+        tname = request.POST["tourname"]
+        tpack = request.POST["tourpackage"]
+        tdesc = request.POST["desc"]
+        pack = Packages.objects.create(tourcode=tcode, tourname=tname, tourpackage=tpack, desc=tdesc)
+        pack.save()
+        messages.info(request, "Data inserted into the Table")
+        return render(request, "Package.html")
 
-        if request.method == "POST":
-            print("Step 1")
-            tcode = request.POST["tourcode"]
-            tname = request.POST["tourname"]
-            tpack = request.POST["tourpackage"]
-            tdesc = request.POST["desc"]
-            pack = Packages.objects.create(tourcode=tcode, tourname=tname, tourpack=tpack, desc=tdesc)
-            pack.save()
-            messages.info(request, "Data inserted into the Table")
-            return render(request, "package.html")
+    else:
+        return render(request, "Package.html")
+
+def viewplaces(request):
+    data=Packages.objects.all()  #get all objects of package class
+    return render(request,"viewplaces.html",{"placesdata":data})
+
+def checkchangepassword(request):
+    if request.method == "POST":
+        uname = request.POST["uname"]
+        opwd = request.POST["opwd"]
+        npwd = request.POST["npwd"]
+        flag = Register.objects.filter(username=uname, password=opwd).values()
+        if flag:
+            Register.object.filter(username=uname,password=opwd).update(password=npwd)
+            return render(request,"index.html")
         else:
-            print("Step 2")
-            messages.info(request, "Data failed to inserted into the Table")
-            return render(request, "package.html")
-    except:
-        print("Error")
-        print("Step 3")
-        return HttpResponse("eRROR ")
+             return render(request,"changepassword.html")

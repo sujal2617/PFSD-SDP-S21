@@ -7,5 +7,6 @@ urlpatterns=[
     path("checkregistration",views.checkregistration,name="checkregistration"),
     path("checkpackages",views.checkpackages,name="checkpackages"),
     path("loadpackages",views.loadpackages,name="loadpackages"),
-
+    path("viewplaces",views.viewplaces,name="viewplaces"),
+    path("checkchangepassword",views.checkchangepassword,name="checkchangepassword"),
 ]

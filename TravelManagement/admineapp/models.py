@@ -19,7 +19,7 @@ class Register(models.Model):
     password = models.CharField(max_length=15, blank=False)
     # Age=models.CharField(max_length=2,blank=False)
     class Meta:
-        db_table = "register1_table"
+            db_table = "register1_table"
 
 class Packages(models.Model):
     id = models.AutoField(primary_key=True)
@@ -29,6 +29,5 @@ class Packages(models.Model):
     desc = models.CharField(max_length=35, blank=False)
     class Meta:
         db_table="package_table"
-
 
 
