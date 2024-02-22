@@ -9,4 +9,5 @@ urlpatterns=[
     path("loadpackages",views.loadpackages,name="loadpackages"),
     path("viewplaces",views.viewplaces,name="viewplaces"),
     path("checkchangepassword",views.checkchangepassword,name="checkchangepassword"),
+    path("logout",views.logout,name="logout"),
 ]

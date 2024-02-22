@@ -4,7 +4,6 @@ from django.contrib import messages
 from .models import Admin, Register, Packages
 from .models import Admin
 
-
 def TravelManagementhome(request):
     return render(request, "TravelManagementhome.html")
 
@@ -78,9 +77,11 @@ def checkpackages(request):
     else:
         return render(request, "Package.html")
 
+
 def viewplaces(request):
-    data=Packages.objects.all()  #get all objects of package class
-    return render(request,"viewplaces.html",{"placesdata":data})
+    data = Packages.objects.all()  # get all objects of package class
+    return render(request, "viewplaces.html", {"placesdata": data})
+
 
 def checkchangepassword(request):
     if request.method == "POST":
@@ -89,7 +90,17 @@ def checkchangepassword(request):
         npwd = request.POST["npwd"]
         flag = Register.objects.filter(username=uname, password=opwd).values()
         if flag:
-            Register.object.filter(username=uname,password=opwd).update(password=npwd)
-            return render(request,"index.html")
+            Register.objects.filter(username=uname, password=opwd).update(password=npwd)
+            messages.info(request, "Password updated successfully")
+            return render(request, "index.html")
         else:
-             return render(request,"changepassword.html")
+            return render(request, "changepassword.html")
+    else:
+        return render(request, "changepassword.html")
+
+
+def logout(request):
+    messages.info(request, "Lougout")
+    return render(request, "index.html")
+
+
